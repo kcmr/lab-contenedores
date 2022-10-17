@@ -2,6 +2,10 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+RUN apk update && \
+    apk upgrade && \ 
+    apk add curl
+
 COPY ["package.json", "package-lock.json", "./"]
 
 RUN npm ci
