@@ -1,0 +1,4 @@
+[
+  {"_id":{"$oid":"5fa2ca6abe7a379ec4234883"},"Name":"Contenedores"},
+  {"_id":{"$oid":"5fa2ca6abe7a379ec4234884"},"Name":"Patatas"}
+]
