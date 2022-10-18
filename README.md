@@ -44,7 +44,7 @@ COPY . .
 CMD ["dotnet", "run"]
 ```
 
-### Crear el Dockerfile para la aplicación Node:
+### Crear el Dockerfile para la aplicación Node
 
 Para la aplicación Frontend exponemos el puerto 3000 en el que corre la aplicación Express para poder mapearlo al puerto 8080 que usaremos para acceder a ella en el navegador desde el host.
 
