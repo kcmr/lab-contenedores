@@ -73,7 +73,7 @@ $ docker build -t lemoncode-challenge-frontend .
 
 Contenedor Mongo:
 ```sh
-$ docker run --name some-mongo -p 27017:27017 --network lemoncode-challenge -v mongo_data:/etc/mongo -d mongo
+$ docker run --name some-mongo -p 27017:27017 --network lemoncode-challenge -v mongo_data:/data/db -d mongo
 ```
 
 Contenedor .NET:
