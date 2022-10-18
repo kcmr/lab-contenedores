@@ -4,7 +4,7 @@ networks:
   lemoncode-challenge:
 
 volumes:
-  mongo-data:
+  mongo_data:
 
 services:
   frontend:
@@ -33,6 +33,6 @@ services:
     networks:
       - lemoncode-challenge
     volumes:
-      - mongo-data:/data/db
+      - mongo_data:/data/db
     container_name: some-mongo
 
