@@ -1,10 +1,11 @@
 version: '3.9'
 
-volumes:
-  mongo_data:
-
 networks:
   lemoncode-challenge:
+
+volumes:
+  lemoncode-challenge-mongodata:
+    external: true
 
 services:
   frontend:
@@ -33,6 +34,6 @@ services:
     networks:
       - lemoncode-challenge
     volumes:
-      - mongo_data:/etc/mongo
+      - lemoncode-challenge-mongodata:/etc/mongo
     container_name: some-mongo
 
