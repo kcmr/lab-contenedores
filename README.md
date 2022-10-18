@@ -94,8 +94,7 @@ Añadimos más entradas a la BBDD desde el contenedor de la aplicación Node:
 
 ```sh
 $ docker exec -it frontend sh
-$ curl -X POST -d '{"TopicName": "Docker volumes"}' -H 'Content-Type: application/json' http://top
-ics-api:5000/api/topics
+$ curl -X POST -d '{"TopicName": "Docker volumes"}' -H 'Content-Type: application/json' http://topics-api:5000/api/topics
 ```
 
 Si refrescamos el navegador veremos la nueva entrada.
