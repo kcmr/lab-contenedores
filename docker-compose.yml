@@ -3,9 +3,6 @@ version: '3.9'
 networks:
   lemoncode-challenge:
 
-volumes:
-  mongo_data:
-
 services:
   frontend:
     build: 
@@ -30,9 +27,11 @@ services:
 
   mongodb:
     image: mongo:latest
+    ports:
+      - 27017:27017
     networks:
       - lemoncode-challenge
     volumes:
-      - mongo_data:/data/db
+      - ./mongo-data:/data/db
     container_name: some-mongo
 
