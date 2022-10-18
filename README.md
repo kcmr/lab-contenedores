@@ -7,6 +7,19 @@
 $ docker network create lemoncode-challenge
 ```
 
+### Arrancar el contenedor Mongo con un volumen mapeado
+
+Para el contenedor de Mongo exponemos el puerto 27017 ya que nos conectaremos a él desde el host mediante el cliente gráfico MongoDB Compass.
+
+```sh
+$ docker run --name some-mongo \
+  -p 27017:27017 \ 
+  --network lemoncode-challenge \
+  -v mongo_data:/data/db -d mongo
+```
+
+Una vez conectados a Mongo, creada la BBDD `TopicstoreDb` y la colección `Topics`, añadimos algunas entradas importando el archivo `Topics.json` situado en la raíz del proyecto.
+
 ### Preparar la aplicación .NET para "dockerizarla"
 
 Antes de crear el contenedor para la aplicación .NET, necesitamos hacer los siguientes cambios en el código:
@@ -67,23 +80,9 @@ $ cd frontend
 $ docker build -t lemoncode-challenge-frontend .
 ```
 
-### Arrancar el contenedor Mongo con un volumen mapeado
-
-Para el contenedor de Mongo exponemos el puerto 27017 ya que nos conectaremos a él desde el host mediante el cliente gráfico MongoDB Compass.
-
-```sh
-$ docker run --name some-mongo \
-  -p 27017:27017 \ 
-  --network lemoncode-challenge \
-  -v mongo_data:/data/db -d mongo
-```
-
-Una vez conectados a Mongo, creada la BBDD `TopicstoreDb` y la colección `Topics`, añadimos algunas entradas importando el archivo `Topics.json` situado en la raíz del proyecto.
-
-
 ### Arrancar los contenedores de las aplicaciones
 
-Una vez que tenemos el contenedor Mongo corriendo, arrancamos los contenedores de las aplicaciones backend y frontend en este orden:
+Con el contenedor Mongo previamente corriendo, arrancamos los contenedores de las aplicaciones backend y frontend en este orden:
 
 **Contenedor .NET**:
 ```sh
